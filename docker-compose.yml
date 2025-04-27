@@ -1,0 +1,19 @@
+version: "3.2"
+services:
+    
+  jogoteca-mysql:
+    image: jogoteca
+    restart: always
+    environment:
+      - MYSQL_DATABASE=JOGOTECA
+      - MYSQL_ROOT_PASSWORD=1234
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db-volume:/var/lib/mysql
+      
+      - ./db-volume:/var/lib/mysql
+  app:
+    build: .
+    ports:
+      - "8000:8000"

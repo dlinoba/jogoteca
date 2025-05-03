@@ -1,0 +1,10 @@
+{% for result in results %}
+<tr>
+    <td>{{ result.nome }}</td>
+    <td>{{ result.categoria }}</td>
+    <td>{{ result.console }}</td>
+    <td><a href="{{ url_for('editar', id=result.id) }}">Editar</a>
+        <a href="{{ url_for('excluir', id=result.id) }}">Excluir</a>
+    </td>
+</tr>
+{% endfor %}

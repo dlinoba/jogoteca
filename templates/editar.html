@@ -1,0 +1,26 @@
+{% extends "template.html" %}
+{% block conteudo %}
+      <form class="formulariojogo" action="{{ url_for('atualizar') }}" method="post" enctype="multipart/form-data">
+      <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+        <fieldset>
+          <input type="hidden" name="id" value="{{ id }}">
+          {{ form.csrf_token() }}
+          <div class="form-group">
+            {{ form.nome.label(class="form-label") }}
+            {{ form.nome(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ form.categoria.label(class="form-label") }}
+            {{ form.categoria(class="form-control") }}            
+          </div>
+          <div class="form-group">
+            {{ form.console.label(class="form-label") }}
+            {{ form.console(class="form-control") }}
+          </div>
+          <div class="form-group buttons"> 
+            {{ form.salvar(class="btn btn-primary") }}
+            <a class="btn btn-danger" href="{{ url_for('lista') }}"> Voltar</a>
+          </div>
+        </fieldset>
+      </form>
+{% endblock %}
